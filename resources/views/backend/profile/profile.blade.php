@@ -5,7 +5,7 @@
         <div class="card overflowhidden m-t-20  text-center">
             <div class="profile-header">
                 <div class="card" style="width: 20rem;">
-                    <div class="image text-center"> <img src="{{asset('assets/images/xs/avatar1.jpg')}}" width="48" height="48" alt="User" /> </div>
+                    <div class="image text-center"> <img src="{{asset('assets/images/xs/avatar1.jpg')}}" width="250" height="200" alt="User" /> </div>
                     <div class="card-body">
                         <h5 class="card-title">{{auth()->user()->name}}</h5>
                         <p class="card-text">{{auth()->user()->email}}</p>

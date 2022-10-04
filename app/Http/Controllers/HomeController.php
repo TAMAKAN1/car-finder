@@ -43,4 +43,15 @@ class HomeController extends Controller
          toastr()->success('محدث.');
         return redirect()->back();
     }
+
+
+    //mobile
+
+ 
+    public function news(){
+        return view('frontend.news');
+    }
+    public function mobileCars(){
+        return view('frontend.cars');
+    }
 }

@@ -12,8 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
+// for mobile view
+Route::get('/Latest-News','HomeController@news')->name('all.news');
+Route::get('/Latest-Cars','HomeController@mobileCars')->name('all.cars');
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
