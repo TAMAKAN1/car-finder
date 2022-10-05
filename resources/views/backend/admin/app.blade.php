@@ -24,7 +24,7 @@
     @yield('style')
 </head>
 
-<body class="theme-green rtl">
+<body class="theme-green rtl ">
 
     <!-- <div class="page-loader-wrapper">
         <div class="loader">
@@ -52,7 +52,6 @@
 
        
     </section>
-  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{asset('assets/bundles/libscripts.bundle.js')}}"></script>
@@ -62,6 +61,7 @@
     <script src="{{asset('assets/bundles/sparkline.bundle.js')}}"></script>
     <script src="{{asset('assets/bundles/mainscripts.bundle.js')}}"></script>
     <script src="{{asset('assets/js/pages/charts/sparkline.js')}}"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
   
     @yield('script')

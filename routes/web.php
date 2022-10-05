@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 // for mobile view
 Route::get('/Latest-News','HomeController@news')->name('all.news');
 Route::get('/Latest-Cars','HomeController@mobileCars')->name('all.cars');
+Route::get('/car-details/{car}','HomeController@car_details')->name('carDetails');
+Route::get('/news-details/{new}','HomeController@news_details')->name('newsDetails');
+Route::get('/search-result','HomeController@search')->name('search');
+Route::get('/company-cars','HomeController@companywish')->name('companywishcar');
+Route::get('/compare-cars','HomeController@compare')->name('compare');
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {

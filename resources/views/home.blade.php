@@ -94,6 +94,18 @@ $cars = Car::orderBy('id', 'desc')->get();
                                                     <label for="">عدد المقاعد </label>
                                                     <input type="text" name="seats" class="form-control" required>
                                                 </div>
+
+                                                <div class="form-group  text-right">
+                                                    <label for=""> أبعاد المركبة </label>
+                                                    <select name="dimention" id="" class="form-control" required>
+                                                        <option value="">اختر واحدة</option>
+                                                        <option value="جيد">جيد</option>
+                                                        <option value="متوسط">متوسط</option>
+                                                        <option value="كبير">كبير</option>
+                                                        <option value="الأسرة">الأسرة</option>
+                                                    </select>
+                                                </div>
+
                                                 <div class="form-group  text-right">
                                                     <label for=""> بطاقة الوقود</label>
                                                     <select name="fuel_card" id="" class="form-control" required>
@@ -110,7 +122,7 @@ $cars = Car::orderBy('id', 'desc')->get();
                                                     <label for=""> صور المركبة من الخارج</label>
                                                     <div class="input-group control-group increment">
                                                         <div class="input-group-btn">
-                                                            <button class="btn btn-success" type="button"  style="padding-bottom: 12px;"><i class="fa fa-plus text-white"></i></button>
+                                                            <button class="btn btn-success" type="button" style="padding-bottom: 12px;"><i class="fa fa-plus text-white"></i></button>
                                                         </div>
                                                         <input type="file" name="out[]" class="form-control">
 
@@ -118,7 +130,7 @@ $cars = Car::orderBy('id', 'desc')->get();
                                                     <div class="clone d-none">
                                                         <div class="control-group input-group" style="margin-top:10px">
                                                             <div class="input-group-btn">
-                                                                <button class="btn btn-danger" type="button"  style="padding-bottom: 12px;"><i class="fa fa-trash text-white"></i></button>
+                                                                <button class="btn btn-danger" type="button" style="padding-bottom: 12px;"><i class="fa fa-trash text-white"></i></button>
 
                                                             </div>
                                                             <input type="file" name="out[]" class="form-control">
@@ -131,7 +143,7 @@ $cars = Car::orderBy('id', 'desc')->get();
                                                     <label for=""> صور المركبة من الداخل </label>
                                                     <div class="input-group control-group incremen">
                                                         <div class="input-group-btn">
-                                                            <button class="btn btn-warning" type="button"  style="padding-bottom: 12px;"><i class="fa fa-plus text-white"></i></button>
+                                                            <button class="btn btn-warning" type="button" style="padding-bottom: 12px;"><i class="fa fa-plus text-white"></i></button>
                                                         </div>
                                                         <input type="file" name="in[]" class="form-control">
 
@@ -139,7 +151,7 @@ $cars = Car::orderBy('id', 'desc')->get();
                                                     <div class="clon d-none">
                                                         <div class="control-group input-group" style="margin-top:10px">
                                                             <div class="input-group-btn">
-                                                                <button class="btn btn-danger bc text-white" type="button"  style="padding-bottom: 12px;"><i class="fa fa-trash text-white"></i></button>
+                                                                <button class="btn btn-danger bc text-white" type="button" style="padding-bottom: 12px;"><i class="fa fa-trash text-white"></i></button>
 
                                                             </div>
                                                             <input type="file" name="in[]" class="form-control">
@@ -148,10 +160,10 @@ $cars = Car::orderBy('id', 'desc')->get();
                                                     </div>
                                                 </div>
                                                 <div class="form-group text-right">
-                                                    <label for=""> صور المركبة من الداخل </label>
+                                                    <label for=""> صورة المحرك</label>
                                                     <div class="input-group control-group increments">
                                                         <div class="input-group-btn">
-                                                            <button class="btn btn-secondary" type="button"  style="padding-bottom: 12px;"><i class="fa fa-plus text-white"></i></button>
+                                                            <button class="btn btn-secondary" type="button" style="padding-bottom: 12px;"><i class="fa fa-plus text-white"></i></button>
                                                         </div>
                                                         <input type="file" name="engine[]" class="form-control">
 
@@ -159,7 +171,7 @@ $cars = Car::orderBy('id', 'desc')->get();
                                                     <div class="clonrs d-none">
                                                         <div class="control-group input-group" style="margin-top:10px">
                                                             <div class="input-group-btn">
-                                                                <button class="btn btn-danger bc text-white" type="button"  style="padding-bottom: 12px;"><i class="fa fa-trash text-white"></i></button>
+                                                                <button class="btn btn-danger bc text-white" type="button" style="padding-bottom: 12px;"><i class="fa fa-trash text-white"></i></button>
 
                                                             </div>
                                                             <input type="file" name="engine[]" class="form-control">
@@ -202,6 +214,7 @@ $cars = Car::orderBy('id', 'desc')->get();
                             <th>سعة المحرك </th>
                             <th>عدد المقاعد</th>
                             <th>بطاقة الوقود</th>
+                            <th>أبعاد المركبة</th>
                             <th>المحتوى</th>
                             <th>تفاصيل</th>
                             <th>عمل</th>
@@ -230,9 +243,9 @@ $cars = Car::orderBy('id', 'desc')->get();
                             <td>{{$car->capacity}}</td>
                             <td>{{$car->seats}}</td>
                             <td>{{$car->fuel_card}}</td>
-              
+                            <td>{{$car->dimention}}</td>
                             <td class="text-right">{{ Str::limit($car->description, 135) }}</td>
-                            <td class="text-left"> <a href=""  data-toggle="modal" data-target="#exam{{$car->id}}"><i class="fa fa-bars text-white mt-2 text-white " aria-hidden="true"   style="background-color:black; font-size:20px" title="تفاصيل السيارة"></i></a></td>
+                            <td class="text-left"> <a href="" data-toggle="modal" data-target="#exam{{$car->id}}"><i class="fa fa-bars text-white mt-2 text-white " aria-hidden="true" style="background-color:black; font-size:20px" title="تفاصيل السيارة"></i></a></td>
                             <td class="text-left">
                                 <a href="" class="m-2 text-danger " data-toggle="modal" data-target="#delete{{$car->id}}"><i class="fa fa-trash mt-2" title="حذف" style="font-size:20px"></i></a>
 
@@ -345,6 +358,19 @@ $cars = Car::orderBy('id', 'desc')->get();
                                                                     <option value="رديئة" {{$car->fuel_card=="رديئة" ? "selected" : ''}}>رديئة</option>
                                                                 </select>
                                                             </div>
+
+                                                            <div class="form-group  text-right">
+                                                                <label for=""> أبعاد المركبة</label>
+                                                                <select name="dimention" id="" class="form-control" required>
+                                                                    <option value="">اختر واحدة</option>
+                                                                    <option value="جيد" {{$car->dimention=="جيد" ? "selected" : ''}}>جيد</option>
+                                                                    <option value="متوسط" {{$car->dimention=="متوسط" ? "متوسط" : ''}}>جيد</option>
+                                                                    <option value="كبير" {{$car->dimention=="كبير" ? "selected" : ''}}>كبير</option>
+                                                                    <option value="الأسرة" {{$car->dimention=="الأسرة" ? "selected" : ''}}>الأسرة</option>
+                                                                </select>
+                                                            </div>
+
+
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group text-right  row ">
@@ -372,12 +398,12 @@ $cars = Car::orderBy('id', 'desc')->get();
 
                                                                 <div class="input-group control-group ">
                                                                     <div class="input-group-btn">
-                                                                        <button class="btn btn-success" type="button"  style="padding-bottom: 12px;">تحميل الصور</button>
+                                                                        <button class="btn btn-success" type="button" style="padding-bottom: 12px;">تحميل الصور</button>
                                                                     </div>
                                                                     <input type="file" name="out[]" class="form-control">
 
                                                                 </div>
-                                                                
+
                                                             </div>
 
                                                             <div class="form-group text-right row">
@@ -387,12 +413,12 @@ $cars = Car::orderBy('id', 'desc')->get();
                                                                 <div class="col-md-4  p-2">
 
                                                                     <div class="col-md-12">
-                                                                   
-                                                                            <!-- <form action="{{route('inside.delete',$img->id)}}" method="POST" name="5">
+
+                                                                        <!-- <form action="{{route('inside.delete',$img->id)}}" method="POST" name="5">
                                                                                 @csrf
                                                                                 @method('delete') -->
-                                                                                <a class=" btn btn-sm btn-danger delete2 text-white" data-id="{{$img->id}}"><i class="fa fa-trash"></i></a>
-                                                                            <!-- </form> -->
+                                                                        <a class=" btn btn-sm btn-danger delete2 text-white" data-id="{{$img->id}}"><i class="fa fa-trash"></i></a>
+                                                                        <!-- </form> -->
                                                                         <a href="{{$img->in}}" target="_blank"><img src="{{asset($img->in)}}" width="80px" height="80px" class=" mt-2 mb-2  " alt=""></a>
                                                                     </div>
                                                                 </div>
@@ -400,15 +426,15 @@ $cars = Car::orderBy('id', 'desc')->get();
                                                                 @endforeach
                                                                 <div class="input-group control-group ">
                                                                     <div class="input-group-btn">
-                                                                        <button class="btn btn-warning" type="button"  style="padding-bottom: 12px;">تحميل الصور</button>
+                                                                        <button class="btn btn-warning" type="button" style="padding-bottom: 12px;">تحميل الصور</button>
                                                                     </div>
                                                                     <input type="file" name="in[]" class="form-control">
 
                                                                 </div>
-                                                           
+
                                                             </div>
                                                             <div class="form-group text-right row">
-                                                                <label for="" class="col-md-12"> صور المركبة من الداخل </label>
+                                                                <label for="" class="col-md-12"> صورة المحرك</label>
                                                                 @foreach($car->engineImages as $img)
 
                                                                 <div class="col-md-4  p-2">
@@ -433,7 +459,7 @@ $cars = Car::orderBy('id', 'desc')->get();
                                                                     <input type="file" name="engine[]" class="form-control">
 
                                                                 </div>
-                                                               
+
 
                                                                 <div class="form-group text-right">
 
@@ -561,11 +587,9 @@ $cars = Car::orderBy('id', 'desc')->get();
         });
 
     });
-</script>
-<script type="text/javascript">
-    var $ = jQuery;
     $(document).ready(function() {
         $('#example1').DataTable();
     });
 </script>
+
 @endsection

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Car extends Model
 {
     protected $fillable=[
-        'category_id','car_name','modal','size','price','capacity','seats','fuel_card','description'
+        'category_id','car_name','modal','size','price','capacity','seats','fuel_card','description','dimention'
     ];
 
     public function category(){

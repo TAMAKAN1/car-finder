@@ -25,7 +25,8 @@ class CarController extends Controller
             'capacity' => $request->capacity,
             'seats' => $request->seats,
             'fuel_card' => $request->fuel_card,
-            'description' => $request->description
+            'description' => $request->description,
+            'dimention'=>$request->dimention
         ]);
 
 
@@ -99,7 +100,8 @@ class CarController extends Controller
             'capacity' => $request->capacity,
             'seats' => $request->seats,
             'fuel_card' => $request->fuel_card,
-            'description' => $request->description
+            'description' => $request->description,
+            'dimention'=>$request->dimention
         ]);
 
 

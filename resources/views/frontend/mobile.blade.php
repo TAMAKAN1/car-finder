@@ -24,7 +24,7 @@
     @yield('style')
 </head>
 
-<body>
+<body class="text-right">
     <!-- Page Preloder -->
     <!-- <div id="preloder">
         <div class="loader"></div>
