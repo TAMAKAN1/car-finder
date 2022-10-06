@@ -10,6 +10,6 @@ class Category extends Model
         'category_name','image'
     ];
     public function cars(){
-        return $this->hasMany(Car::class,'car_id');
+        return $this->hasMany(Car::class,'category_id');
     }
 }

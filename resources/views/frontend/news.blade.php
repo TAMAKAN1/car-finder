@@ -8,6 +8,7 @@ $news = News::orderBy('id', 'desc')->get();
 ?>
 @extends('frontend.mobile')
 @section('content')
+@include('frontend.searchfornews')
 <section class="featured  m-2 " dir="rtl">
     <div class="container">
 

@@ -18,8 +18,14 @@ Route::get('/Latest-Cars','HomeController@mobileCars')->name('all.cars');
 Route::get('/car-details/{car}','HomeController@car_details')->name('carDetails');
 Route::get('/news-details/{new}','HomeController@news_details')->name('newsDetails');
 Route::get('/search-result','HomeController@search')->name('search');
-Route::get('/company-cars','HomeController@companywish')->name('companywishcar');
+Route::get('/company-cars/{category}','HomeController@companywish')->name('companywishcar');
 Route::get('/compare-cars','HomeController@compare')->name('compare');
+Route::post('/add-to-compare/{car}', 'HomeController@comparecard')->name('compare.add');
+Route::get('/all-compare-cars', 'HomeController@showCart')->name('cars.show');
+Route::delete('/delete-car-from-compare/{car}', 'HomeController@destroyCart')->name('car.delete.compare');
+Route::get('/Search-result-news','HomeController@Newssearch')->name('search.news');
+
+
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {

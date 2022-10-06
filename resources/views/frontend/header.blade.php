@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="row mt-4 text-right">
-                    <a href="/mobile-view" class="text-right" style="width:42%;float:left;margin: 0 3%"><img src="{{asset('assets/images/xs/22.jpg')}}" alt="" width="120" height="60" class="img-fluid"></a>
+                    <a href="/Latest-Cars" class="text-right" style="width:42%;float:left;margin: 0 3%"><img src="{{asset('assets/images/xs/22.jpg')}}" alt="" width="120" height="60" class="img-fluid"></a>
                     <a href="" class="text-dark mt-4 text-left " style="width:42%;float:left;margin: 0 3%" data-toggle="modal" data-target="#exampleModal">
                         <i class="fa fa-filter" style="font-size:30px" aria-hidden="true"></i>
                     </a>
@@ -104,18 +104,19 @@
                 <!-- modal -->
             </div>
 
-            <div class="col-lg-12 mt-2 mb-2 d-block ">
-                <form action="{{route('search')}}">
+            <!-- <div class="col-lg-12 mt-2 mb-2 d-block ">
+                <form action="{{route('search')}}" method="get">
+                    @csrf
                     <div class="input-group mb-4">
                         <div class="input-group-append">
                             <button id="button-addon5" type="submit" style="border:none;padding:0 20px"> <i class="fa fa-search"> </i> </button>
                         </div>
-                        <input type="search" placeholder="ابحث هنا.." aria-describedby="button-addon5" class="form-control">
+                        <input type="text"  name="search" placeholder="ابحث عن سيارة.." aria-describedby="button-addon5" class="form-control">
 
                     </div>
 
                 </form>
-            </div>
+            </div> -->
         </div>
 
 

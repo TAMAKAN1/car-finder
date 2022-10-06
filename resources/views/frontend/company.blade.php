@@ -12,13 +12,13 @@ $categories = Category::orderBy('id', 'desc')->get();
             <div class="categories__slider owl-carousel">
                 <div class="col-md-12">
                     <div class="row">
-                        @foreach($categories as $company)
+                        @foreach($categories as $category)
                         <div class="col-md-3" style="width:25%;float:left">
-                            <a href="{{route('companywishcar')}}">
-                                <img src="{{asset($company->image)}}" alt="image" max-width="150px" height="60px">
+                            <a href="{{route('companywishcar',$category->id)}}">
+                                <img src="{{asset($category->image)}}" alt="image" max-width="150px" height="60px">
 
                             </a>
-                            <p><a href="{{route('companywishcar')}}" class="text-dark"><strong>{{$company->category_name}}</strong></a></p>
+                            <p><a href="{{route('companywishcar',$category->id)}}" class="text-dark"><strong>{{$category->category_name}}</strong></a></p>
 
                         </div>
                         @endforeach

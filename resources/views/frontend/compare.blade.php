@@ -1,98 +1,56 @@
-<?php
-
-?>
 @extends('frontend.mobile')
 @section('content')
 <div class="row text-right bg-white" dir="rtl" style="padding-top:50px;padding-bottom:50px">
+ @if(!$cars->isEmpty())
+ @foreach($cars as $car)
     <div class="col-md-6  " style="width:33%;float:left;overflow:none">
-        <a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+        <form action="{{route('car.delete.compare',$car->id)}}" method="POST">
+            @csrf
+            @method('delete')
+            <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+
+        </form>
         <div class="col-md-12 mt-4">
-            <img src="{{asset('img/c1.jpeg')}}" alt="" class="img-fluid">
+            <a href="{{route('carDetails',$car->id)}}">
+                <img src="{{asset($car->outImages[0]->out ?? $car->insideImages[0]->in )}}" alt="" class="img-fluid">
+
+
+            </a>
         </div>
         <div class="col-md-12">
-            <small style="font-size:10px"><strong>هيونداي اكسنت سمارت</strong></small>
+            <small style="font-size:10px"><strong><a href="{{route('carDetails',$car->id)}}" class="text-dark">{{$car->car_name}}</a></strong></small>
         </div>
         <div class="col-md-12">
-            <small style="font-size:10px"><strong>2020</strong></small>
+            <small style="font-size:10px"><strong>{{$car->category->category_name}}</strong></small>
         </div>
         <div class="col-md-12">
-            <small style="font-size:10px"><strong>1100-2000 SAR</strong></small>
+            <small style="font-size:10px"><strong>{{$car->modal}}</strong></small>
         </div>
         <div class="col-md-12">
-            <small style="font-size:10px"><strong>SUV</strong></small>
+            <small style="font-size:10px"><strong>{{$car->price}}</strong></small>
         </div>
         <div class="col-md-12">
-            <small style="font-size:10px"><strong>2000cc</strong></small>
+            <small style="font-size:10px"><strong>{{$car->size}}</strong></small>
         </div>
         <div class="col-md-12">
-            <small style="font-size:10px"><strong>3</strong></small>
+            <small style="font-size:10px"><strong>{{$car->capacity}}</strong></small>
         </div>
         <div class="col-md-12">
-            <small style="font-size:10px"><strong>جيد</strong></small>
+            <small style="font-size:10px"><strong>{{$car->seats}}</strong></small>
         </div>
         <div class="col-md-12">
-            <small style="font-size:10px"><strong>كبير</strong></small>
+            <small style="font-size:10px"><strong>{{$car->dimention}}</strong></small>
+        </div>
+        <div class="col-md-12">
+            <small style="font-size:10px"><strong>{{$car->fuel_card}}</strong></small>
         </div>
     </div>
-    <div class="col-md-6 bg-white " style="width:33%;float:left;overflow:none">
-        <a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-        <div class="col-md-12 mt-4">
-            <img src="{{asset('img/c1.jpeg')}}" alt="" class="img-fluid">
-        </div>
-        <div class="col-md-12">
-            <small style="font-size:10px"><strong>هيونداي اكسنت سمارت</strong></small>
-        </div>
-        <div class="col-md-12">
-            <small style="font-size:10px"><strong>2020</strong></small>
-        </div>
-        <div class="col-md-12">
-            <small style="font-size:10px"><strong>1100-2000 SAR</strong></small>
-        </div>
-        <div class="col-md-12">
-            <small style="font-size:10px"><strong>SUV</strong></small>
-        </div>
-        <div class="col-md-12">
-            <small style="font-size:10px"><strong>2000cc</strong></small>
-        </div>
-        <div class="col-md-12">
-            <small style="font-size:10px"><strong>3</strong></small>
-        </div>
-        <div class="col-md-12">
-            <small style="font-size:10px"><strong>جيد</strong></small>
-        </div>
-        <div class="col-md-12">
-            <small style="font-size:10px"><strong>كبير</strong></small>
-        </div>
-    </div>
-    <div class="col-md-6 bg-white " style="width:33%;float:left;overflow:none">
-        <a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-        <div class="col-md-12 mt-4">
-            <img src="{{asset('img/c1.jpeg')}}" alt="" class="img-fluid">
-        </div>
-        <div class="col-md-12">
-            <small style="font-size:10px"><strong>هيونداي اكسنت سمارت</strong></small>
-        </div>
-        <div class="col-md-12">
-            <small style="font-size:10px"><strong>2020</strong></small>
-        </div>
-        <div class="col-md-12">
-            <small style="font-size:10px"><strong>1100-2000 SAR</strong></small>
-        </div>
-        <div class="col-md-12">
-            <small style="font-size:10px"><strong>SUV</strong></small>
-        </div>
-        <div class="col-md-12">
-            <small style="font-size:10px"><strong>2000cc</strong></small>
-        </div>
-        <div class="col-md-12">
-            <small style="font-size:10px"><strong>3</strong></small>
-        </div>
-        <div class="col-md-12">
-            <small style="font-size:10px"><strong>جيد</strong></small>
-        </div>
-        <div class="col-md-12">
-            <small style="font-size:10px"><strong>كبير</strong></small>
-        </div>
-    </div>
+
+    @endforeach
+ @else
+ <div class="col-md-12">
+    <p class="text-center">لا يوجد عنصر مضاف...</p>
+ </div>
+ @endif
 </div>
 @endsection
