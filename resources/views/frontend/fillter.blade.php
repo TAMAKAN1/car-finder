@@ -1,4 +1,3 @@
-
 @extends('frontend.mobile')
 @section('content')
 @include('frontend.searchforcar')
@@ -7,8 +6,8 @@
     <div class="container">
 
         <div class="row featured__filter">
-        @if(!$cars->isEmpty())
-        <div class="row" class="" style="margin-bottom:20%">
+            @if(!$cars->isEmpty())
+            <div class="row" class="" style="margin-bottom:20%">
                 @foreach($cars as $car)
 
                 <div class="col-md-12  bg-white  mt-2 mb-2 text-right" style="">
@@ -18,20 +17,20 @@
                             <p class="m-0" style="font-size:13px"><strong>{{$car->modal}}</strong></p>
                             <p class="m-0" style="font-size:13px"><strong>{{$car->price}}</strong></p>
                             <p>
-                        @foreach ($cart_items as $c) 
-                            @if($c->id==$car->id)
-                             <a href="{{route('cars.show')}}"><small style="font-size:10px;text-decoration:underline">عنصر مقارنة</small></a>
-                         
-                            @endif
-                          
-                            @endforeach 
+                                @foreach ($cart_items as $c)
+                                @if($c->id==$car->id)
+                                <a href="{{route('cars.show')}}"><small style="font-size:10px;text-decoration:underline">عنصر مقارنة</small></a>
+
+                                @endif
+
+                                @endforeach
                             <form action="{{route('compare.add',$car->id)}}" method="POST">
                                 @csrf
                                 <button type="submit" class="m-0 " style="color:#0aab96;font-size: 18px;border:none;background:none"><i title="مقارنة" class="fa fa fa-retweet"></i></button>
                             </form>
-                            
+
                             </p>
-                           
+
                         </div>
                         <div class="col-md-6 mt-4 mb-2" style="width: 50%;float:left">
                             <a href="{{route('carDetails',$car->id)}}"> <img src="{{$car->outImages[0]->out}}" alt="img-fluid" style="border-radius:5%"></a>
@@ -43,11 +42,11 @@
                 @endforeach
             </div>
             @else
-            <center>
-            <span class="text-center">النتيجة غير موجودة.</span>
+            <div class="col-md-12">
+                <p class="text-center">السيارة غير موجودة ..</p>
 
-            </center>
-        @endif
+            </div>
+            @endif
 
         </div>
     </div>

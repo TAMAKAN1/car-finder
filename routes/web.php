@@ -24,7 +24,7 @@ Route::post('/add-to-compare/{car}', 'HomeController@comparecard')->name('compar
 Route::get('/all-compare-cars', 'HomeController@showCart')->name('cars.show');
 Route::delete('/delete-car-from-compare/{car}', 'HomeController@destroyCart')->name('car.delete.compare');
 Route::get('/Search-result-news','HomeController@Newssearch')->name('search.news');
-
+Route::get('/cars-fillter-result','HomeController@fliter')->name('filtter');
 
 Auth::routes();
 

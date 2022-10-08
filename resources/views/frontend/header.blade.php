@@ -24,77 +24,54 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for=""><strong>لشركة المصنعة </strong></label>
-                                        <select name="company_name" id="" class="form-control">
-                                            <option value="">اختر واحدة</option>
-                                            @foreach(App\Category::orderBy('id','desc')->get() as $company)
-                                            <option value="{{$company->category_name}}">{{$company->category_name}}</option>
-                                            @endforeach
-                                        </select>
+                                <form action="{{route('filtter')}}" method="get">
+                                    @csrf
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for=""><strong>لشركة المصنعة </strong></label>
+                                            <select name="company_name" id="" class="form-control">
+                                                <option value="">اختر واحدة</option>
+                                                @foreach(App\Category::orderBy('id','desc')->get() as $company)
+                                                <option value="{{$company->category_name}}">{{$company->category_name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for=""><strong>اسم السيارة</strong></label>
-                                        <input type="text" name="car_name" id="" class="form-control">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for=""><strong>اسم السيارة</strong></label>
+                                            <input type="text" name="car_name" id="" class="form-control">
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for=""><strong>سعر</strong></label>
+                                            <input type="text" name="price" id="" class="form-control">
+                                        </div>
+                                    </div>
+
+                             
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for=""><strong>سنة الصنع </strong></label>
+                                            <input type="text" name="modal" class="form-control">
+                                        </div>
+                                    </div>
+                            
 
 
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for=""><strong>فئة </strong></label>
-                                        <select name="size" id="" class="form-control" required>
-
-                                            <option value="">اختر واحدة</option>
-                                            <option value="SEDAN">SEDAN</option>
-                                            <option value="SUV">SUV</option>
-                                            <option value="SPORTS CAR">SPORTS CAR</option>
-                                            <option value="MINIVAN">MINIVAN</option>
-                                            <option value="COUPE">COUPE</option>
-                                            <option value="STATION WAGON">STATION WAGON</option>
-                                            <option value="PICKUP TRUCK">PICKUP TRUCK</option>
-                                            <option value="HATCHBACK">HATCHBACK</option>
-                                        </select>
+                             
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for=""> <strong>سعة المحرك</strong></label>
+                                            <input type="text" name="capacity" id="" class="form-control" placeholder="EX. 2000cc">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group ">
-                                        <label for=""> <strong>أبعاد المركبة</strong> </label>
-                                        <select name="dimention" id="" class="form-control" required>
-                                            <option value="">اختر واحدة</option>
-                                            <option value="جيد">جيد</option>
-                                            <option value="متوسط">متوسط</option>
-                                            <option value="كبير">كبير</option>
-                                            <option value="الأسرة">الأسرة</option>
-                                        </select>
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-dark d-block w-100">ابحث عن سيارة</button>
                                     </div>
-                                </div>
-
-
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for=""> <strong>بطاقة الوقود</strong></label>
-                                        <select name="fuel_card" id="" class="form-control" required>
-                                            <option value="">اختر واحدة</option>
-                                            <option value="ممتاز">ممتاز</option>
-                                            <option value="جيد">جيد</option>
-                                            <option value="معدل">معدل</option>
-                                            <option value="رديئة">رديئة</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for=""> <strong>سعة المحرك</strong></label>
-                                        <input type="text" name="capacity" id="" class="form-control" placeholder="EX. 2000cc">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <button class="btn btn-dark d-block w-100">ابحث عن سيارة</button>
-                                </div>
+                                </form>
                             </div>
 
                         </div>
