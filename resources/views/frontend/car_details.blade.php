@@ -173,6 +173,22 @@
                 <label for=""><strong> تفاصيل : </strong></label><br>
                 <span class="text-justify">{{$car->description}}</span>
             </div>
+            <div class="col-md-12">
+                <p>
+                    @foreach ($cart_items as $c)
+                    @if($c->id==$car->id)
+                    <a href="{{route('cars.show')}}"><small style="font-size:10px;text-decoration:underline">عنصر مقارنة</small></a>
+
+                    @endif
+
+                    @endforeach
+                <form action="{{route('compare.add',$car->id)}}" method="POST">
+                    @csrf
+                    <button type="submit" class="m-0 " style="color:#0aab96;font-size: 18px;border:none;background:none"><i title="مقارنة" class="fa fa fa-retweet"></i></button>
+                </form>
+
+                </p>
+            </div>
         </div>
     </div>
 

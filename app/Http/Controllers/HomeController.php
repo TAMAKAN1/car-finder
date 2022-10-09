@@ -68,7 +68,8 @@ class HomeController extends Controller
     }
     public function car_details(Car $car)
     {
-        return view('frontend.car_details', compact('car'));
+        $cart_items = Cart::getContent();
+        return view('frontend.car_details', compact('car','cart_items'));
     }
     public function news_details(News $new)
     {
@@ -135,23 +136,23 @@ class HomeController extends Controller
     {
         $cart_items = Cart::getContent();
         if ($request->company_name && $request->car_name && $request->price && $request->modal && $request->capacity) {
-            $cars = Car::where('car_name', $request->car_name)->where('price', 'LIKE', '%' . $request->price . '%')->where('modal', 'LIKE', '%' . $request->modal . '%')->where('capacity', 'LIKE', '%' . $request->capacity . '%')->orWhereHas('category', function ($query) use ($request) {
+            $cars = Car::where( 'car_name','LIKE', '%' . $request->car_name . '%')->where('price', 'LIKE', '%' . $request->price . '%')->where('modal', 'LIKE', '%' . $request->modal . '%')->where('capacity', 'LIKE', '%' . $request->capacity . '%')->orWhereHas('category', function ($query) use ($request) {
                 $query->where('category_name', 'like', "%{$request->company_name}%");
             })->get();
         } 
         elseif($request->company_name && $request->car_name && $request->modal && $request->capacity ||   $request->price ){
-            $cars=  Car::where('car_name', $request->car_name)->where('modal', $request->modal)->where('capacity',$request->capacity)->where('price',$request->price)->whereHas('category', function ($query) use ($request) {
+            $cars=  Car::where('car_name','LIKE', '%' . $request->car_name . '%')->where('modal', $request->modal)->where('capacity',$request->capacity)->where('price',$request->price)->whereHas('category', function ($query) use ($request) {
                 $query->where('category_name', 'like', "%{$request->company_name}%");
             })->get();
         }
         elseif($request->company_name && $request->car_name && $request->modal && $request->price  ){
-            $cars=  Car::where('car_name', $request->car_name)->where('modal', $request->modal)->where('price',$request->price)->whereHas('category', function ($query) use ($request) {
+            $cars=  Car::where('car_name','LIKE', '%' . $request->car_name . '%')->where('modal', $request->modal)->where('price',$request->price)->whereHas('category', function ($query) use ($request) {
                 $query->where('category_name', 'like', "%{$request->company_name}%");
             })->get();
         }
    
         elseif($request->company_name && $request->car_name && $request->modal  ){
-            $cars=  Car::where('car_name', $request->car_name)->where('modal', $request->modal)->whereHas('category', function ($query) use ($request) {
+            $cars=  Car::where('car_name','LIKE', '%' . $request->car_name . '%')->where('modal', $request->modal)->whereHas('category', function ($query) use ($request) {
                 $query->where('category_name', 'like', "%{$request->company_name}%");
             })->get();
         }
@@ -159,7 +160,7 @@ class HomeController extends Controller
 
      
         elseif($request->company_name && $request->car_name){
-            $cars=  Car::where('car_name', $request->car_name)->whereHas('category', function ($query) use ($request) {
+            $cars=  Car::where('car_name','LIKE', '%' . $request->car_name . '%')->whereHas('category', function ($query) use ($request) {
                 $query->where('category_name', 'like', "%{$request->company_name}%");
             })->get();
         }
@@ -170,7 +171,7 @@ class HomeController extends Controller
             })->get();
         } 
         elseif($request->car_name){
-          $cars=  Car::where('car_name', $request->car_name)->get();
+          $cars=  Car::where('car_name','LIKE', '%' . $request->car_name . '%')->get();
         }
         elseif($request->price){
             $cars=  Car::where('price', $request->price)->get();
